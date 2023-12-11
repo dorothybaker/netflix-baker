@@ -4,17 +4,28 @@ import MovieList from "@/components/MovieList";
 import Navbar from "@/components/Navbar";
 import useInfoModal from "@/hooks/useInfoModal";
 import useMovieList from "@/hooks/useMovieList";
-import { NextPageContext } from "next";
-import { getSession } from "next-auth/react";
 
-export async function getServerSideProps(context: NextPageContext) {
-  const session = await getSession(context);
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "./api/auth/[...nextauth]";
+import { NextPageContext } from "next";
+
+export async function getServerSideProps(context: any) {
+  const session = await getServerSession(context.req, context.res, authOptions);
 
   if (!session) {
-    return { redirect: { destination: "/auth", permanent: false } };
+    return {
+      redirect: {
+        destination: "/auth",
+        permanent: false,
+      },
+    };
   }
 
-  return { props: { session } };
+  return {
+    props: {
+      session,
+    },
+  };
 }
 
 export default function Home() {
