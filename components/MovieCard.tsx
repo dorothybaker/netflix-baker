@@ -12,11 +12,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
       className="bg-zinc-900 cursor-pointer"
       onClick={() => openModal(data?.id)}
     >
-      <div className="lg:h-[12vw] h-[17vh]">
+      <div className="h-[200px]">
         <img
           src={data?.thumbnailUrl}
           alt="thumbnail"
-          className="object-cover lg:h-[12vw] w-full h-[17vh]"
+          className="object-cover block h-[200px] w-full"
         />
       </div>
       <h1 className="text-white text-center">{data?.title}</h1>
