@@ -31,7 +31,7 @@ const Billboard = () => {
         </p>
         <div className="mt-3 flex flex-row gap-3 items-center">
           <button
-            className="text-white bg-white/30 flex items-center px-3 gap-1 py-2 rounded-md hover:bg-opacity-40"
+            className="text-white bg-white/30 flex items-center px-[10px] gap-1 py-[6px] rounded-md hover:bg-opacity-40"
             onClick={handleOpenModal}
           >
             <MdInfoOutline />
