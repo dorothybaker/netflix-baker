@@ -14,7 +14,7 @@ export async function getServerSideProps(context: NextPageContext) {
     return { redirect: { destination: "/auth", permanent: false } };
   }
 
-  return { props: {} };
+  return { props: { session } };
 }
 
 export default function Home() {
