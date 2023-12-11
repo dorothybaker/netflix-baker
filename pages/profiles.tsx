@@ -1,16 +1,26 @@
 import useCurrentUser from "@/hooks/useCurrentUser";
-import { NextPageContext } from "next";
-import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
-export async function getServerSideProps(context: NextPageContext) {
-  const session = await getSession(context);
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "./api/auth/[...nextauth]";
+
+export async function getServerSideProps(context: any) {
+  const session = await getServerSession(context.req, context.res, authOptions);
 
   if (!session) {
-    return { redirect: { destination: "/auth", permanent: false } };
+    return {
+      redirect: {
+        destination: "/auth",
+        permanent: false,
+      },
+    };
   }
 
-  return { props: {} };
+  return {
+    props: {
+      session,
+    },
+  };
 }
 
 const Profiles = () => {

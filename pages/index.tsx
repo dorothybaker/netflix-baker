@@ -7,7 +7,6 @@ import useMovieList from "@/hooks/useMovieList";
 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./api/auth/[...nextauth]";
-import { NextPageContext } from "next";
 
 export async function getServerSideProps(context: any) {
   const session = await getServerSession(context.req, context.res, authOptions);
