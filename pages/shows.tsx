@@ -13,7 +13,7 @@ const Shows = () => {
       <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <div className="pt-16 px-3">
-        <h1 className="text-2xl text-white mb-2 pl-3">Tv Shows</h1>
+        <h1 className="text-3xl text-white mb-2 pl-3">Tv Shows</h1>
         <MovieList data={shows} />
       </div>
     </>

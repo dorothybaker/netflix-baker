@@ -49,13 +49,6 @@ const Navbar = () => {
           background ? "bg-zinc-900/90" : ""
         }`}
       >
-        <div
-          className="lg:hidden flex flex-row items-center mr-3 cursor-pointer relative"
-          onClick={toggleMobileMenu}
-        >
-          <CiMenuKebab color="white" size={30} />
-          <MobileMenu visible={mobileMenu} />
-        </div>
         <Image src="/images/logo.png" alt="logo" height={100} width={100} />
         <div className="hidden lg:flex flex-row ml-8 gap-7">
           <NavbarItem label="Home" href="/" />
@@ -63,6 +56,20 @@ const Navbar = () => {
           <NavbarItem label="Movies" href="/movies" />
           <NavbarItem label="Recently added" href="/recently" />
           <NavbarItem label="My List" href="/list" />
+        </div>
+        <div
+          className="lg:hidden flex flex-row items-center ml:2 cursor-pointer relative"
+          onClick={toggleMobileMenu}
+        >
+          <div className="flex flex-row items-center gap-1 text-white ml-3">
+            <p>Browse</p>
+            <BsChevronDown
+              color="white"
+              size={13}
+              className={`${mobileMenu ? "rotate-180" : "rotate-0"} transition`}
+            />
+          </div>
+          <MobileMenu visible={mobileMenu} />
         </div>
         <div className="ml-auto flex flex-row gap-4 items-center">
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer">
